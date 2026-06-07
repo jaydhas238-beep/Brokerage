@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trusted Property Brokers</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+    body{background:#f7f7f7;color:#111}
+    header{background:#111;color:white;padding:18px 8%;display:flex;justify-content:space-between;align-items:center}
+    header h2{color:#f5c542}
+    nav a{color:white;text-decoration:none;margin-left:18px}
+    .hero{padding:80px 8%;background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),url('https://images.unsplash.com/photo-1560518883-ce09059eeffa');background-size:cover;background-position:center;color:white}
+    .hero h1{font-size:45px;max-width:650px}
+    .hero p{margin:18px 0;font-size:18px;max-width:550px}
+    .btn{display:inline-block;background:#f5c542;color:#111;padding:13px 22px;border-radius:8px;text-decoration:none;font-weight:bold}
+    section{padding:55px 8%}
+    h2{text-align:center;margin-bottom:30px;font-size:32px}
+    .services,.properties,.brokers{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+    .card{background:white;padding:22px;border-radius:14px;box-shadow:0 5px 20px rgba(0,0,0,.08)}
+    .card img{width:100%;height:190px;object-fit:cover;border-radius:12px;margin-bottom:15px}
+    .card h3{margin-bottom:8px}
+    .price{color:#0b8f3a;font-weight:bold;margin:10px 0}
+    .whatsapp{display:block;text-align:center;background:#25D366;color:white;padding:12px;border-radius:8px;text-decoration:none;margin-top:12px;font-weight:bold}
+    .about{background:#111;color:white;text-align:center}
+    .about p{max-width:750px;margin:auto;line-height:1.7}
+    form{max-width:600px;margin:auto;background:white;padding:25px;border-radius:14px;box-shadow:0 5px 20px rgba(0,0,0,.08)}
+    input,select,textarea{width:100%;padding:13px;margin:10px 0;border:1px solid #ccc;border-radius:8px}
+    button{width:100%;padding:14px;background:#111;color:white;border:none;border-radius:8px;font-size:16px;font-weight:bold;cursor:pointer}
+    footer{background:#111;color:white;text-align:center;padding:20px}
+    @media(max-width:700px){.hero h1{font-size:34px}header{flex-direction:column;gap:10px}nav a{margin:8px}}
+  </style>
+</head>
+<body>
+
+<header>
+  <h2>Prime Property Brokers</h2>
+  <nav>
+    <a href="#properties">Properties</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Find Flats, Shops & Properties With Trusted Local Brokers</h1>
+  <p>We help customers find rental flats, resale properties, shops and commercial spaces with proper owner coordination.</p>
+  <a class="btn" href="#properties">View Properties</a>
+</div>
+
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="card">
+      <h3>Rental Flats</h3>
+      <p>1BHK, 2BHK, 3BHK flats for family, students and working professionals.</p>
+    </div>
+    <div class="card">
+      <h3>Resale Properties</h3>
+      <p>Verified resale flats, row houses and independent houses.</p>
+    </div>
+    <div class="card">
+      <h3>Commercial Shops</h3>
+      <p>Shops, offices and commercial spaces for rent or sale.</p>
+    </div>
+  </div>
+</section>
+
+<section id="properties">
+  <h2>Available Properties</h2>
+  <div class="properties">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267" alt="Flat">
+      <h3>2 BHK Flat for Rent</h3>
+      <p>Ashoka Marg, Nashik</p>
+      <p class="price">₹18,000/month</p>
+      <p>Semi-furnished flat with balcony, parking and good locality.</p>
+      <a class="whatsapp" href="https://wa.me/919999999999?text=I am interested in 2 BHK Flat at Ashoka Marg">WhatsApp Broker</a>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6" alt="House">
+      <h3>1 BHK Flat for Rent</h3>
+      <p>College Road, Nashik</p>
+      <p class="price">₹10,000/month</p>
+      <p>Good for students and working bachelors. Easy access to market.</p>
+      <a class="whatsapp" href="https://wa.me/919999999999?text=I am interested in 1 BHK Flat at College Road">WhatsApp Broker</a>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab" alt="Shop">
+      <h3>2 BHK Flat</h3>
+      <p>Near DY Patil, Akurdi</p>
+      <p class="price">₹35,000/month</p>
+      <p>Road-touch shop suitable for retail, office or showroom.</p>
+      <a class="whatsapp" href="https://wa.me/919999999999?text=I am interested in Commercial Shop">WhatsApp Broker</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="about">
+  <h2>About Us</h2>
+  <p>
+    We are a team of 3 trusted local property brokers working together to connect owners and customers.
+    Our goal is to save time, provide genuine property options and make the rent/sale process smooth.
+  </p>
+</section>
+
+<section>
+  <h2>Our Brokers</h2>
+  <div class="brokers">
+    <div class="card">
+      <h3>Broker 1</h3>
+      <p>Rental Flats Specialist</p>
+      <a class="whatsapp" href="https://wa.me/919999999999">Contact on WhatsApp</a>
+    </div>
+    <div class="card">
+      <h3>Broker 2</h3>
+      <p>Resale Property Specialist</p>
+      <a class="whatsapp" href="https://wa.me/918888888888">Contact on WhatsApp</a>
+    </div>
+    <div class="card">
+      <h3>Broker 3</h3>
+      <p>Commercial Property Specialist</p>
+      <a class="whatsapp" href="https://wa.me/917777777777">Contact on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Send Your Requirement</h2>
+  <form onsubmit="sendWhatsApp(); return false;">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="tel" id="phone" placeholder="Your Phone Number" required>
+    <select id="type" required>
+      <option value="">Select Property Type</option>
+      <option>1 BHK</option>
+      <option>2 BHK</option>
+      <option>3 BHK</option>
+      <option>Shop / Office</option>
+      <option>Resale Property</option>
+    </select>
+    <input type="text" id="area" placeholder="Preferred Area">
+    <input type="text" id="budget" placeholder="Budget">
+    <textarea id="message" placeholder="Extra Requirement"></textarea>
+    <button type="submit">Send Requirement on WhatsApp</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 Prime Property Brokers | Nashik</p>
+</footer>
+
+<script>
+  function sendWhatsApp(){
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let type = document.getElementById("type").value;
+    let area = document.getElementById("area").value;
+    let budget = document.getElementById("budget").value;
+    let message = document.getElementById("message").value;
+
+    let brokerNumber = "919999999999";
+
+    let text = `New Property Requirement:%0A
+Name: ${name}%0A
+Phone: ${phone}%0A
+Property Type: ${type}%0A
+Area: ${area}%0A
+Budget: ${budget}%0A
+Message: ${message}`;
+
+    window.open(`https://wa.me/${brokerNumber}?text=${text}`, "_blank");
+  }
+</script>
+
+</body>
+</html>
