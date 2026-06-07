@@ -1,77 +1,387 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trusted Property Brokers</title>
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-    body{background:#f7f7f7;color:#111}
-    header{background:#111;color:white;padding:18px 8%;display:flex;justify-content:space-between;align-items:center}
-    header h2{color:#f5c542}
-    nav a{color:white;text-decoration:none;margin-left:18px}
-    .hero{padding:80px 8%;background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),url('https://images.unsplash.com/photo-1560518883-ce09059eeffa');background-size:cover;background-position:center;color:white}
-    .hero h1{font-size:45px;max-width:650px}
-    .hero p{margin:18px 0;font-size:18px;max-width:550px}
-    .btn{display:inline-block;background:#f5c542;color:#111;padding:13px 22px;border-radius:8px;text-decoration:none;font-weight:bold}
-    section{padding:55px 8%}
-    h2{text-align:center;margin-bottom:30px;font-size:32px}
-    .services,.properties,.brokers{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
-    .card{background:white;padding:22px;border-radius:14px;box-shadow:0 5px 20px rgba(0,0,0,.08)}
-    .card img{width:100%;height:190px;object-fit:cover;border-radius:12px;margin-bottom:15px}
-    .card h3{margin-bottom:8px}
-    .price{color:#0b8f3a;font-weight:bold;margin:10px 0}
-    .whatsapp{display:block;text-align:center;background:#25D366;color:white;padding:12px;border-radius:8px;text-decoration:none;margin-top:12px;font-weight:bold}
-    .about{background:#111;color:white;text-align:center}
-    .about p{max-width:750px;margin:auto;line-height:1.7}
-    form{max-width:600px;margin:auto;background:white;padding:25px;border-radius:14px;box-shadow:0 5px 20px rgba(0,0,0,.08)}
-    input,select,textarea{width:100%;padding:13px;margin:10px 0;border:1px solid #ccc;border-radius:8px}
-    button{width:100%;padding:14px;background:#111;color:white;border:none;border-radius:8px;font-size:16px;font-weight:bold;cursor:pointer}
-    footer{background:#111;color:white;text-align:center;padding:20px}
-    @media(max-width:700px){.hero h1{font-size:34px}header{flex-direction:column;gap:10px}nav a{margin:8px}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prime Property Brokers</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',Arial,sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#f4f1ec;
+  color:#1c1c1c;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(20,20,20,0.92);
+  backdrop-filter:blur(12px);
+  color:white;
+  padding:18px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 8px 30px rgba(0,0,0,0.25);
+}
+
+.logo{
+  font-size:25px;
+  font-weight:800;
+  color:#d4af37;
+  letter-spacing:1px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:22px;
+  font-weight:500;
+  position:relative;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background:#d4af37;
+  transition:0.3s;
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+.hero{
+  min-height:88vh;
+  padding:90px 8%;
+  display:flex;
+  align-items:center;
+  background:
+  linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.75)),
+  url('https://images.unsplash.com/photo-1560518883-ce09059eeffa');
+  background-size:cover;
+  background-position:center;
+  color:white;
+}
+
+.hero-content{
+  max-width:700px;
+  animation:fadeUp 1s ease;
+}
+
+.hero h1{
+  font-size:55px;
+  line-height:1.1;
+  margin-bottom:20px;
+}
+
+.hero span{
+  color:#d4af37;
+}
+
+.hero p{
+  font-size:19px;
+  line-height:1.7;
+  margin-bottom:30px;
+  color:#eee;
+}
+
+.btn{
+  display:inline-block;
+  padding:15px 28px;
+  background:linear-gradient(135deg,#d4af37,#f5d76e);
+  color:#111;
+  text-decoration:none;
+  border-radius:40px;
+  font-weight:800;
+  box-shadow:0 10px 25px rgba(212,175,55,0.35);
+  transition:0.35s;
+}
+
+.btn:hover{
+  transform:translateY(-5px) scale(1.04);
+  box-shadow:0 16px 35px rgba(212,175,55,0.55);
+}
+
+section{
+  padding:65px 8%;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.section-title h2{
+  font-size:36px;
+  color:#111;
+}
+
+.section-title p{
+  color:#666;
+  margin-top:10px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:28px;
+}
+
+.card{
+  background:rgba(255,255,255,0.9);
+  border-radius:22px;
+  padding:25px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.08);
+  transition:0.35s;
+  border:1px solid rgba(255,255,255,0.7);
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 25px 50px rgba(0,0,0,0.16);
+}
+
+.card h3{
+  margin-bottom:10px;
+  color:#111;
+}
+
+.card p{
+  color:#555;
+  line-height:1.6;
+}
+
+.card img{
+  width:100%;
+  height:210px;
+  object-fit:cover;
+  border-radius:18px;
+  margin-bottom:18px;
+  transition:0.35s;
+}
+
+.card:hover img{
+  transform:scale(1.03);
+}
+
+.price{
+  color:#0b8f3a!important;
+  font-weight:800;
+  margin:12px 0;
+  font-size:18px;
+}
+
+.whatsapp{
+  display:block;
+  margin-top:18px;
+  padding:13px;
+  text-align:center;
+  border-radius:35px;
+  background:linear-gradient(135deg,#25D366,#128C7E);
+  color:white;
+  text-decoration:none;
+  font-weight:800;
+  transition:0.35s;
+}
+
+.whatsapp:hover{
+  transform:scale(1.05);
+  box-shadow:0 12px 28px rgba(37,211,102,0.35);
+}
+
+.about{
+  background:linear-gradient(135deg,#111,#2b2112);
+  color:white;
+  text-align:center;
+}
+
+.about h2{
+  color:#d4af37;
+}
+
+.about p{
+  max-width:850px;
+  margin:auto;
+  line-height:1.8;
+  color:#eee;
+  font-size:18px;
+}
+
+.broker-card{
+  text-align:center;
+}
+
+.broker-icon{
+  width:80px;
+  height:80px;
+  background:linear-gradient(135deg,#111,#d4af37);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:32px;
+  margin:0 auto 15px;
+}
+
+form{
+  max-width:650px;
+  margin:auto;
+  background:white;
+  padding:32px;
+  border-radius:24px;
+  box-shadow:0 20px 45px rgba(0,0,0,0.12);
+}
+
+input,select,textarea{
+  width:100%;
+  padding:15px;
+  margin:10px 0;
+  border:1px solid #ddd;
+  border-radius:14px;
+  outline:none;
+  font-size:15px;
+  transition:0.3s;
+}
+
+input:focus,select:focus,textarea:focus{
+  border-color:#d4af37;
+  box-shadow:0 0 0 4px rgba(212,175,55,0.15);
+}
+
+button{
+  width:100%;
+  margin-top:12px;
+  padding:16px;
+  background:linear-gradient(135deg,#111,#3b2b10);
+  color:white;
+  border:none;
+  border-radius:40px;
+  font-size:16px;
+  font-weight:800;
+  cursor:pointer;
+  transition:0.35s;
+}
+
+button:hover{
+  transform:translateY(-4px);
+  background:linear-gradient(135deg,#d4af37,#111);
+  box-shadow:0 14px 30px rgba(0,0,0,0.25);
+}
+
+footer{
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:24px;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(35px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@media(max-width:750px){
+  header{
+    flex-direction:column;
+    gap:12px;
+  }
+
+  nav a{
+    margin:0 8px;
+    font-size:14px;
+  }
+
+  .hero h1{
+    font-size:38px;
+  }
+
+  .hero{
+    min-height:80vh;
+    padding:70px 6%;
+  }
+}
+</style>
 </head>
+
 <body>
 
 <header>
-  <h2>Prime Property Brokers</h2>
+  <div class="logo">Prime Property Brokers</div>
   <nav>
-    <a href="#properties">Properties</a>
     <a href="#services">Services</a>
+    <a href="#properties">Properties</a>
+    <a href="#brokers">Brokers</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<div class="hero">
-  <h1>Find Flats, Shops & Properties With Trusted Local Brokers</h1>
-  <p>We help customers find rental flats, resale properties, shops and commercial spaces with proper owner coordination.</p>
-  <a class="btn" href="#properties">View Properties</a>
-</div>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Find Your Perfect <span>Property</span> With Trusted Brokers</h1>
+    <p>
+      Flats, shops, resale properties and commercial spaces with smooth owner-customer coordination.
+    </p>
+    <a href="#properties" class="btn">View Properties</a>
+  </div>
+</section>
 
 <section id="services">
-  <h2>Our Services</h2>
-  <div class="services">
+  <div class="section-title">
+    <h2>Our Services</h2>
+    <p>We help customers find genuine properties faster.</p>
+  </div>
+
+  <div class="grid">
     <div class="card">
       <h3>Rental Flats</h3>
-      <p>1BHK, 2BHK, 3BHK flats for family, students and working professionals.</p>
+      <p>1BHK, 2BHK and 3BHK flats for families, students and working professionals.</p>
     </div>
+
     <div class="card">
       <h3>Resale Properties</h3>
-      <p>Verified resale flats, row houses and independent houses.</p>
+      <p>Verified resale flats, houses and investment properties with owner coordination.</p>
     </div>
+
     <div class="card">
-      <h3>Commercial Shops</h3>
-      <p>Shops, offices and commercial spaces for rent or sale.</p>
+      <h3>Commercial Spaces</h3>
+      <p>Shops, offices and road-touch spaces for rent or sale.</p>
     </div>
   </div>
 </section>
 
 <section id="properties">
-  <h2>Available Properties</h2>
-  <div class="properties">
+  <div class="section-title">
+    <h2>Available Properties</h2>
+    <p>Sample listings. Replace these with real properties.</p>
+  </div>
+
+  <div class="grid">
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267" alt="Flat">
+      <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267">
       <h3>2 BHK Flat for Rent</h3>
       <p>Ashoka Marg, Nashik</p>
       <p class="price">₹18,000/month</p>
@@ -80,18 +390,18 @@
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6" alt="House">
+      <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6">
       <h3>1 BHK Flat for Rent</h3>
       <p>College Road, Nashik</p>
       <p class="price">₹10,000/month</p>
-      <p>Good for students and working bachelors. Easy access to market.</p>
+      <p>Good option for students, bachelors and working professionals.</p>
       <a class="whatsapp" href="https://wa.me/919999999999?text=I am interested in 1 BHK Flat at College Road">WhatsApp Broker</a>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab" alt="Shop">
-      <h3>2 BHK Flat</h3>
-      <p>Near DY Patil, Akurdi</p>
+      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab">
+      <h3>Commercial Shop</h3>
+      <p>Main Market, Nashik</p>
       <p class="price">₹35,000/month</p>
       <p>Road-touch shop suitable for retail, office or showroom.</p>
       <a class="whatsapp" href="https://wa.me/919999999999?text=I am interested in Commercial Shop">WhatsApp Broker</a>
@@ -103,25 +413,34 @@
 <section class="about">
   <h2>About Us</h2>
   <p>
-    We are a team of 3 trusted local property brokers working together to connect owners and customers.
-    Our goal is to save time, provide genuine property options and make the rent/sale process smooth.
+    We are a team of 3 trusted local property brokers working together to connect property owners and customers.
+    Our aim is to save your time, show genuine options and make the rent or sale process smooth.
   </p>
 </section>
 
-<section>
-  <h2>Our Brokers</h2>
-  <div class="brokers">
-    <div class="card">
+<section id="brokers">
+  <div class="section-title">
+    <h2>Meet Our Brokers</h2>
+    <p>Contact the right broker directly.</p>
+  </div>
+
+  <div class="grid">
+    <div class="card broker-card">
+      <div class="broker-icon">👤</div>
       <h3>Broker 1</h3>
       <p>Rental Flats Specialist</p>
       <a class="whatsapp" href="https://wa.me/919999999999">Contact on WhatsApp</a>
     </div>
-    <div class="card">
+
+    <div class="card broker-card">
+      <div class="broker-icon">🏠</div>
       <h3>Broker 2</h3>
       <p>Resale Property Specialist</p>
       <a class="whatsapp" href="https://wa.me/918888888888">Contact on WhatsApp</a>
     </div>
-    <div class="card">
+
+    <div class="card broker-card">
+      <div class="broker-icon">🏢</div>
       <h3>Broker 3</h3>
       <p>Commercial Property Specialist</p>
       <a class="whatsapp" href="https://wa.me/917777777777">Contact on WhatsApp</a>
@@ -130,10 +449,15 @@
 </section>
 
 <section id="contact">
-  <h2>Send Your Requirement</h2>
+  <div class="section-title">
+    <h2>Send Your Requirement</h2>
+    <p>Customer details will open directly in WhatsApp.</p>
+  </div>
+
   <form onsubmit="sendWhatsApp(); return false;">
     <input type="text" id="name" placeholder="Your Name" required>
     <input type="tel" id="phone" placeholder="Your Phone Number" required>
+
     <select id="type" required>
       <option value="">Select Property Type</option>
       <option>1 BHK</option>
@@ -142,9 +466,11 @@
       <option>Shop / Office</option>
       <option>Resale Property</option>
     </select>
+
     <input type="text" id="area" placeholder="Preferred Area">
     <input type="text" id="budget" placeholder="Budget">
     <textarea id="message" placeholder="Extra Requirement"></textarea>
+
     <button type="submit">Send Requirement on WhatsApp</button>
   </form>
 </section>
@@ -154,17 +480,18 @@
 </footer>
 
 <script>
-  function sendWhatsApp(){
-    let name = document.getElementById("name").value;
-    let phone = document.getElementById("phone").value;
-    let type = document.getElementById("type").value;
-    let area = document.getElementById("area").value;
-    let budget = document.getElementById("budget").value;
-    let message = document.getElementById("message").value;
+function sendWhatsApp(){
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let type = document.getElementById("type").value;
+  let area = document.getElementById("area").value;
+  let budget = document.getElementById("budget").value;
+  let message = document.getElementById("message").value;
 
-    let brokerNumber = "919999999999";
+  let brokerNumber = "919999999999";
 
-    let text = `New Property Requirement:%0A
+  let text =
+  `New Property Requirement:%0A
 Name: ${name}%0A
 Phone: ${phone}%0A
 Property Type: ${type}%0A
@@ -172,9 +499,10 @@ Area: ${area}%0A
 Budget: ${budget}%0A
 Message: ${message}`;
 
-    window.open(`https://wa.me/${brokerNumber}?text=${text}`, "_blank");
-  }
+  window.open(`https://wa.me/${brokerNumber}?text=${text}`, "_blank");
+}
 </script>
 
 </body>
 </html>
+
